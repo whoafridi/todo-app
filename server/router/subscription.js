@@ -35,6 +35,16 @@ router.post("/addpackage", async (req, res) => {
       res.json({ message: error });
     }
   });
+// get package by email
+router.get("/getpackagebymail/:email", async (req, res) => {
+    console.log(req.params.email)
+    try {
+      const package = await Subscription.find({ email: req.params.email });
+      res.send(package);
+    } catch (error) {
+      res.json({ message: error });
+    }
+  });
   // update todo
   router.put("/getpackage/:id", async (req, res) => {
     const updatedPackage = req.body;

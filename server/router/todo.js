@@ -39,7 +39,7 @@ router.get("/gettodobyid/:todoId", async (req, res) => {
 router.get("/gettodobymail/:email", async (req, res) => {
     console.log(req.params.email)
     try {
-      const todo = await Todo.findOne({ email: req.params.email });
+      const todo = await Todo.find({ email: req.params.email });
       res.send(todo);
     } catch (error) {
       res.json({ message: error });
